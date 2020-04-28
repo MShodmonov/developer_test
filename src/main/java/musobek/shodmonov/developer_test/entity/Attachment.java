@@ -17,4 +17,5 @@ public class Attachment extends AbstractEntity {
     private String name;
     private String contentType;
     private Long size;
+
 }
