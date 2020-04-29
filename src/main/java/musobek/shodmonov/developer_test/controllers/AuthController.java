@@ -15,8 +15,10 @@ public class AuthController {
     @GetMapping("/login")
     public String getLoginPage()
     {
-        if (authService.isAuthenticated())
-            return "redirect:/";
-        else return "login";
+        if (!authService.isAuthenticated())
+            return "redirect:/index";
+        else return "/login";
     }
+
+
 }

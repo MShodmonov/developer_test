@@ -29,4 +29,5 @@ public class AuthService implements UserDetailsService {
     {
         return (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken);
     }
+
 }

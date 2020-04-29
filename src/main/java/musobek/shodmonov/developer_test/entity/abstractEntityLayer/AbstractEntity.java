@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import musobek.shodmonov.developer_test.entity.audit.UserDateAuditing;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.UUID;
@@ -14,8 +16,6 @@ import java.util.UUID;
 public abstract class AbstractEntity extends UserDateAuditing {
 
     @Id
-//    @Type(type = "org.hibernate.type.PostgresUUIDType")
-//    @GeneratedValue(generator = "uuid2")
-//    @GenericGenerator(name = "uuid2",strategy = "org.hibernate.type.PostgresUUIDType")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 }
