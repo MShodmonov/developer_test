@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity(name = "users")
@@ -39,6 +40,8 @@ public class User extends AbstractEntity implements UserDetails {
     private boolean isAccountNonLocked = true;
     private boolean isCredentialNonExpired = true;
     private boolean isEnabled = true;
+    private boolean isActivated=false;
+    private UUID activationCode;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -65,11 +68,12 @@ public class User extends AbstractEntity implements UserDetails {
         return isEnabled;
     }
 
-    public User(String username,String email, String fullName, String password,List<Role> roles) {
+    public User(String username,String email, String fullName, String password,List<Role> roles,boolean isActivated) {
         this.username = username;
         this.email = email;
         this.fullName = fullName;
         this.password = password;
         this.roles = roles;
+        this.isActivated = isActivated;
     }
 }

@@ -18,11 +18,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final AuthService authService;
 
+
     public SecurityConfig(AuthService authService) {
         this.authService = authService;
     }
 
-    @Bean
+    @Bean(name = "passwordEncoder")
     public PasswordEncoder getPasswordEncoder()
     {
         return new BCryptPasswordEncoder();
