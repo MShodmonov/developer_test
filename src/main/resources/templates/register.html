@@ -136,7 +136,7 @@
 </div>
 <form class="form-signin"
       th:action="@{/register}"
-      th:object="registerRequest"
+      th:object="${registerRequest}"
       method="post"
       th:if="${isRegister}"
         >
@@ -147,7 +147,7 @@
         <label for="username" >Username </label>
             <input type="text"
                    class="form-control"
-                   th:field="*{registerRequest.username}"
+                   th:field="*{username}"
                    id="username"
                    placeholder="Enter Username"
                    required
@@ -159,7 +159,7 @@
         <label for="password">Password</label>
         <input type="password"
                class="form-control"
-               th:field="*{registerRequest.password}"
+               th:field="*{password}"
                id="password"
                placeholder="Enter password">
         <span th:if="${#fields.hasErrors('password')}" th:errors="${registerRequest.password}" class="text-danger"></span>
@@ -167,7 +167,7 @@
     <div class="form-label-group">
         <label for="confirmPassword"> Confirm Password</label>
         <input type="password"
-                th:field="*{registerRequest.confirmPassword}"
+                th:field="*{confirmPassword}"
                 class="form-control"
                 id="confirmPassword"
                 placeholder="Reenter password"
@@ -177,7 +177,7 @@
     <div class="form-label-group">
         <label for="fullName"> Full name</label>
         <input type="text"
-               th:field="*{registerRequest.fullName}"
+               th:field="*{fullName}"
                class="form-control"
                id="fullName"
                placeholder="Enter full name"
@@ -187,7 +187,7 @@
     <div class="form-label-group">
         <label for="fullName"> Email</label>
         <input type="email"
-               th:field="*{registerRequest.email}"
+               th:field="*{email}"
                class="form-control"
                id="email"
                placeholder="Enter email"

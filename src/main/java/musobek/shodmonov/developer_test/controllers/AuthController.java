@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -34,7 +34,7 @@ public class AuthController {
         if (!authService.isAuthenticated())
         {
             model.addAttribute("registerRequest",new RegisterRequest());
-            model.addAttribute("isRegister",false);
+            model.addAttribute("isRegister",true);
             return "register";
         }
         else return "/index";
@@ -47,6 +47,8 @@ public class AuthController {
         if (bindingResult.hasErrors())
         {
             model.addAttribute("message", "please enter information");
+            model.addAttribute("registerRequest",registerRequest);
+            model.addAttribute("isRegister",true);
             return "/register";
         }
         else
@@ -60,19 +62,20 @@ public class AuthController {
             }
             else {
                 model.addAttribute("message", "please enter information");
+                model.addAttribute("isRegister",true);
                 return "/register";
             }
         }
     }
-    @GetMapping("/activate/{activationCode}")
-    public String activateUser(@PathVariable String activationCode)
+    @GetMapping("/activate")
+    public String activateUser(@RequestParam(name = "activationCode") String activationCode)
     {
         TemplateMessage templateMessage = authService.activateAccount(activationCode);
         if (templateMessage.getActionSuccess())
         {
             return "redirect:/";
         }
-        else return "error";
+        else return "/login";
     }
 
 

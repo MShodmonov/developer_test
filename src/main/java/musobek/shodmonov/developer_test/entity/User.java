@@ -39,8 +39,7 @@ public class User extends AbstractEntity implements UserDetails {
     private boolean isAccountNonExpired = true;
     private boolean isAccountNonLocked = true;
     private boolean isCredentialNonExpired = true;
-    private boolean isEnabled = true;
-    private boolean isActivated=false;
+    private boolean isEnabled = false;
     private UUID activationCode;
 
     @Override
@@ -68,12 +67,21 @@ public class User extends AbstractEntity implements UserDetails {
         return isEnabled;
     }
 
-    public User(String username,String email, String fullName, String password,List<Role> roles,boolean isActivated) {
+    public User(String username,String email, String fullName, String password,List<Role> roles,UUID activationCode) {
         this.username = username;
         this.email = email;
         this.fullName = fullName;
         this.password = password;
         this.roles = roles;
-        this.isActivated = isActivated;
+        this.activationCode = activationCode;
+    }
+
+    public User(String username,String email, String fullName, String password,List<Role> roles,boolean isEnabled) {
+        this.username = username;
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
+        this.roles = roles;
+        this.isEnabled = isEnabled;
     }
 }
