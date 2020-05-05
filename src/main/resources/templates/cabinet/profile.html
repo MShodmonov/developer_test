@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{cabinet/core}">
+    <th:block layout:fragment="style">
+<!--    Dashboard    styles-->
+    </th:block>
+
+        <div layout:fragment="page_content">
+            <form   th:action="@{/cabinet/profile}"
+                    th:object="${profileRequest}"
+                    method="post"
+            enctype="multipart/form-data">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <div class="card-title">
+                                        Edit Profile
+                                    </div>
+                                    <p class="card-category">
+                                        Complete your profile
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">
+                                                    Username
+                                                </label>
+                                                <input type="text"
+                                                       class="form-control"
+                                                        th:field="*{username}"
+                                                        autofocus
+                                                        id="username">
+
+                                                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                                                      class="text-danger"></span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">
+                                                    Email
+                                                </label>
+                                                <input type="email"
+                                                       class="form-control"
+                                                       th:field="*{email}"
+                                                        autofocus
+                                                        id="email">
+
+                                                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                                      class="text-danger"></span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">
+                                                Full name
+                                            </label>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   th:field="*{fullName}"
+                                                   id="fullName">
+
+                                            <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"
+                                                  class="text-danger"></span>
+                                        </div>
+
+                                    </div></div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label> Password</label>
+                                                <input type="password"
+                                                       class="form-control"
+                                                        id="password"
+                                                        th:field="*{password}">
+                                                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:error="*{password}"></span>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label> Password</label>
+                                                <input type="password"
+                                                       class="form-control"
+                                                       id="prePassword"
+                                                       th:field="*{prePassword}">
+                                                <span class="text-danger" th:if="${#fields.hasErrors('prePassword')}" th:error="*{prePassword}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary pull-right">
+                                        Update Profile
+                                    </button>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-profile">
+                                <div class="card-avatar">
+                                    <a href="#">
+                                        <img src="assets/img/user.png" class="img">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <input type="file" th:field="*{photo}" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+<th:block layout:fragment="scripts">
+<!--    scripts -->
+</th:block>
+</html>

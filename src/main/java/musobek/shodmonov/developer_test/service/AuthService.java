@@ -91,10 +91,12 @@ public class AuthService implements UserDetailsService {
             {
                 User user = optionalUser.get();
                 user.setEnabled(true);
+                user.setRoles(roleRepository.findAllByName(RoleEnumeration.ROLE_USER));
                 user.setActivationCode(null);
                 userRepository.save(user);
 
-                setSecurity(user);
+                if (!setSecurity(user))
+                    throw new Exception();
 
                 templateMessage.setActionSuccess(true);
                 templateMessage.setMessage("Successfully");
@@ -108,13 +110,22 @@ public class AuthService implements UserDetailsService {
         }
         return templateMessage;
     }
-private void setSecurity(User user)
+private boolean setSecurity(User user)
 {
-    SecurityContext context=new MySecurityContext();
-    MyAuthentication myAuthentication=new MyAuthentication(user.getAuthorities());
-    myAuthentication.setDetails(user);
-    myAuthentication.setAuthenticated(true);
-    context.setAuthentication(myAuthentication);
-    SecurityContextHolder.setContext(context);
+    try {
+
+
+        SecurityContext context = new MySecurityContext();
+        MyAuthentication myAuthentication = new MyAuthentication(user.getAuthorities());
+        myAuthentication.setDetails(user);
+        myAuthentication.setAuthenticated(true);
+        context.setAuthentication(myAuthentication);
+        SecurityContextHolder.setContext(context);
+        return true;
+    }
+    catch (Exception e)
+    {
+        return false;
+    }
 }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Custom page CSS
+-------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+
+        .container {
+            width: auto;
+            max-width: 680px;
+            padding: 0 15px;
+        }
+
+        .footer {
+            background-color: #f5f5f5;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0" role="main">
+    <div class="container">
+        <h1 class="mt-5"> Cabinet Page</h1>
+        <h3>Username <span sec:authentication="principal.username"></span></h3>
+        <h3>Fullname <span sec:authentication="principal.fullName"></span></h3>
+        <p class="lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Accusamus, aliquam amet autem cum dolores exercitationem expedita
+            in labore nihil perspiciatis possimus quae quos recusandae
+            similique ullam unde vel, voluptate voluptates?
+        </p>
+        <p>
+            <a href="/cabinet/#" class="btn btn-outline-info">Contacts</a>
+            <a href="/" class="btn btn-outline-info">Home</a>
+            <a href="/logout" class="btn btn-outline-info">Log out</a>
+        </p>
+    </div>
+</main>
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">
+            Place sticky footer content here.
+        </span>
+    </div>
+</footer>
+</body>
+</html>
