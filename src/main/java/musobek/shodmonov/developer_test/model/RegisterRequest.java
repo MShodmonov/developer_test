@@ -1,6 +1,8 @@
 package musobek.shodmonov.developer_test.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
@@ -8,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RegisterRequest {
 
     @Size(max = 32,min = 5, message = "Username must be between 5 and 32 characters")

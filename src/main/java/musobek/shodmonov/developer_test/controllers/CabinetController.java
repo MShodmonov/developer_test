@@ -41,7 +41,7 @@ public class CabinetController {
                                  BindingResult result,
                                  Model model)
     {
-        if (!result.hasErrors())
+        if (!(result.hasErrors()))
         {
             TemplateMessage templateMessage = profileService.updateProfile(user, profileRequest);
             if (templateMessage.getActionSuccess())
@@ -62,5 +62,10 @@ public class CabinetController {
     public String getDeveloperPage()
     {
         return "/cabinet/developer";
+    }
+    @GetMapping("/cabinet/wishes")
+    public String getWishesPage()
+    {
+        return "cabinet/wishes";
     }
 }

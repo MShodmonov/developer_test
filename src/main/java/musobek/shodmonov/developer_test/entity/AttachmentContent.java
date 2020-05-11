@@ -19,5 +19,6 @@ public class AttachmentContent extends AbstractEntity {
     @JoinColumn(nullable = false)
     private Attachment attachment;
 
+    @Lob
     private byte[] content;
 }

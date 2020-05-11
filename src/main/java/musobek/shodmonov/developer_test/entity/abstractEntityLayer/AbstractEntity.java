@@ -3,9 +3,10 @@ package musobek.shodmonov.developer_test.entity.abstractEntityLayer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import musobek.shodmonov.developer_test.entity.audit.UserDateAuditing;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.UUID;
@@ -16,6 +17,8 @@ import java.util.UUID;
 public abstract class AbstractEntity extends UserDateAuditing {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Type(type = "org.hibernate.type.PostgresUUIDType")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 }

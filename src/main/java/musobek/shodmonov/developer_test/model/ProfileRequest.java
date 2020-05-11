@@ -3,6 +3,7 @@ package musobek.shodmonov.developer_test.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import musobek.shodmonov.developer_test.annotations.ImageValidator;
 import musobek.shodmonov.developer_test.entity.User;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,6 +36,7 @@ public class ProfileRequest {
     }
 
     @NotNull
+    @ImageValidator
     private MultipartFile photo;
 
     public ProfileRequest(User user) {
