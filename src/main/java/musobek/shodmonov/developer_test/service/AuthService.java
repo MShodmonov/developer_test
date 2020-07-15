@@ -33,13 +33,14 @@ public class AuthService implements UserDetailsService {
     private final RoleRepository roleRepository;
     private final MailSender mailSender;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public AuthService(UserRepository userRepository, RoleRepository roleRepository , MailSender mailSender) {
+    @Autowired
+    public AuthService(UserRepository userRepository, RoleRepository roleRepository, MailSender mailSender, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.mailSender = mailSender;
+        this.passwordEncoder = passwordEncoder;
     }
 
 

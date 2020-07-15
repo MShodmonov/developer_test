@@ -45,4 +45,5 @@ public class ProfileRequest {
         this.fullName = user.getFullName();
         this.password = user.getPassword();
     }
+
 }

@@ -8,6 +8,9 @@ public class HomeController {
     @GetMapping({"/","/home","/index","/index.html"})
     public String getHomePage()
     {
+//        ClassPathResource classPathResource = new ClassPathResource("/src/main/resources/static/assets/img/");
+//        String path = classPathResource.getPath();
+//
         return "index";
     }
 }

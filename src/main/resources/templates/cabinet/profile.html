@@ -110,13 +110,41 @@
                             <div class="card card-profile">
                                 <div class="card-avatar">
                                     <a href="#">
-                                        <img src="../assets/img/user.png" class="img-fluid" >
+                                        <img src="../assets/img/user.png" class="img-fluid" height="12px" width="12px"  alt="ndjvdk">
                                     </a>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <input type="file" th:field="*{photo}" accept="image/*">
+                                <span class="text-danger"></span>
                             </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" th:if="${imageName != null}">
+                            <div class="card card-profile">
+                                <div class="card-blog">
+                                    <a href="#">
+                                        <img th:src="@{${'/assets/img/' + imageName}}" alt="should be image" height="100px" width="100px">
+                                    </a>
+                                </div>
+                                <span class="text-danger" th:text="${imageName}">Cannot display</span>
+                            </div>
+                            <div class="card-body"><span th:text="${imageName +'with saving to static folder'}" class="text-danger"></span></div>
+                        </div>
+                        <div class="col-md-4" th:if="${image != null}">
+                            <div class="card card-profile">
+                                <div class="card-blog">
+                                    <a href="#">
+                                        <img th:src="@{${'data:image/'+type+';base64,' + image}}" alt="sample" height="100px" width="100px"/>
+                                    </a>
+                                    <span>With base 64</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-"></div>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class AttachmentContent extends AbstractEntity {
 
-    @OneToOne(fetch = FetchType.LAZY,optional = false)
+    @OneToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(nullable = false)
     private Attachment attachment;
 

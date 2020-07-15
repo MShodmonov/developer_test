@@ -16,7 +16,7 @@ import javax.persistence.*;
 public abstract class UserDateAuditing extends DateAuditing{
 
     @CreatedBy
-    @ManyToOne(fetch = FetchType.LAZY) //cascade = {CascadeType.REFRESH,CascadeType.MERGE}
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(updatable = false)
     private User createdBy;
 

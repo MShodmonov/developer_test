@@ -25,7 +25,7 @@ public class AuditConfig {
         @Override
         public Optional<User> getCurrentAuditor() {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            if (authentication instanceof AnonymousAuthenticationToken || authentication == null || !authentication.isAuthenticated())
+            if (authentication instanceof AnonymousAuthenticationToken || authentication == null)
             {
                 return Optional.empty();
             }

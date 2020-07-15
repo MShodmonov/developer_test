@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{cabinet/core}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block layout:fragment="styles">
+
+    </th:block>
+
+<th:block layout:fragment="page_content">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="card">
+                    <div class="card-header">
+                        Add contact
+                    </div>
+                    <div class="card-body">
+                        <form th:action="${savePath}"
+                                th:object="${contactRequest}"
+                                method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text"
+                                        th:field="*{name}"
+                                        id="name"
+                                        placeholder="Enter contact name"
+                                        class="form-control">
+                                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"> </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone number</label>
+                                <input type="text"
+                                       th:field="*{phoneNumber}"
+                                       id="phoneNumber"
+                                       placeholder="Enter phone Number"
+                                       class="form-control">
+                                <span th:if="${#fields.hasErrors('phoneNumber')}" th:error="*{phoneNumber}" class="text-danger"> </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email"
+                                       th:field="*{email}"
+                                       id="email"
+                                       placeholder="Enter email contact"
+                                       class="form-control">
+                                <span th:if="${#fields.hasErrors('email')}" th:error="*{email}" class="text-danger"> </span>
+                            </div>
+
+                            <a href="/cabinet/contact/" class="btn btn-outline-secondary">Back</a>
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+</th:block>
+
+
+
+    <th:block layout:fragment="scripts">
+
+    </th:block>
+</html>

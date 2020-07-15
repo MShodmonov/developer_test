@@ -36,6 +36,8 @@ public class User extends AbstractEntity implements UserDetails {
     private Attachment attachment;
 
 
+
+
     private boolean isAccountNonExpired = true;
     private boolean isAccountNonLocked = true;
     private boolean isCredentialNonExpired = true;
