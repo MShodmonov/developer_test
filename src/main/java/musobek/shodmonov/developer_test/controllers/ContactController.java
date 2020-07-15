@@ -56,7 +56,7 @@ public class ContactController {
     {
         model.addAttribute("contactRequest", new ContactRequest());
         model.addAttribute("savePath","cabinet/contact/add");
-        return "/cabinet/contact/form";
+        return "cabinet/contact/form";
     }
     @PostMapping("/add")
     public String addContactPost(@Valid  ContactRequest contactRequest,

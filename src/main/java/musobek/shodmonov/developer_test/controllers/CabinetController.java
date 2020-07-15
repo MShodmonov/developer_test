@@ -71,7 +71,7 @@ public class CabinetController {
             TemplateMessage templateMessage = profileService.updateProfile(user, profileRequest);
             if (templateMessage.getActionSuccess())
             {
-                return "redirect:/cabinet";
+                return "redirect:cabinet";
             }
             else return "cabinet/profile";
         }

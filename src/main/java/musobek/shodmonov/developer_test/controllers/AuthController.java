@@ -58,7 +58,7 @@ public class AuthController {
             {
                 model.addAttribute("message",templateMessage.getMessage());
                 model.addAttribute("isRegister",templateMessage.getActionSuccess());
-                return "/login";
+                return "login";
             }
             else {
                 model.addAttribute("message", "please enter information");
