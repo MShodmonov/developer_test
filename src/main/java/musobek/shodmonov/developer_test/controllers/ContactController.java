@@ -55,7 +55,7 @@ public class ContactController {
     public String addContact(Model model)
     {
         model.addAttribute("contactRequest", new ContactRequest());
-        model.addAttribute("savePath","/cabinet/contact/add");
+        model.addAttribute("savePath","cabinet/contact/add");
         return "/cabinet/contact/form";
     }
     @PostMapping("/add")
@@ -65,11 +65,11 @@ public class ContactController {
     {
         if (bindingResult.hasErrors()) {
             model.addAttribute("contactRequest", contactRequest);
-            return "/cabinet/contact/form";
+            return "cabinet/contact/form";
         }
         else {
             contactService.insertContact(contactRequest);
-            return "redirect:/cabinet/contact/";
+            return "redirect:cabinet/contact/";
         }
     }
 

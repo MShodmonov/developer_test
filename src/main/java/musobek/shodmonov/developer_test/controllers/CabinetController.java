@@ -73,20 +73,20 @@ public class CabinetController {
             {
                 return "redirect:/cabinet";
             }
-            else return "/cabinet/profile";
+            else return "cabinet/profile";
         }
-        else return "/cabinet/profile";
+        else return "cabinet/profile";
     }
 
     @GetMapping("/cabinet/dashboard")
     public String getDashboard()
     {
-        return "/cabinet/dashboard";
+        return "cabinet/dashboard";
     }
     @GetMapping("/cabinet/developer")
     public String getDeveloperPage()
     {
-        return "/cabinet/developer";
+        return "cabinet/developer";
     }
     @GetMapping("/cabinet/wishes")
     public String getWishesPage()

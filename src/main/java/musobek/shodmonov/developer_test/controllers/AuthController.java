@@ -25,7 +25,7 @@ public class AuthController {
     {
         if (authService.isAuthenticated())
             return "redirect:/index";
-        else return "/login";
+        else return "login";
     }
 
     @GetMapping("/register")
@@ -37,7 +37,7 @@ public class AuthController {
             model.addAttribute("isRegister",true);
             return "register";
         }
-        else return "/index";
+        else return "index";
 
     }
     @PostMapping("/register")
@@ -49,7 +49,7 @@ public class AuthController {
             model.addAttribute("message", "please enter information");
             model.addAttribute("registerRequest",registerRequest);
             model.addAttribute("isRegister",true);
-            return "/register";
+            return "register";
         }
         else
         {
@@ -63,7 +63,7 @@ public class AuthController {
             else {
                 model.addAttribute("message", "please enter information");
                 model.addAttribute("isRegister",true);
-                return "/register";
+                return "register";
             }
         }
     }
@@ -75,7 +75,7 @@ public class AuthController {
         {
             return "redirect:/";
         }
-        else return "/login";
+        else return "login";
     }
 
 
